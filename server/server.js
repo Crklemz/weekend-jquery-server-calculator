@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
 
-let 
+// let previousResults = [];
+// let currentResult = [];
 
 app.use(express.static('server/public')); 
 app.use(bodyParser.urlencoded({extended : true}));

@@ -11,8 +11,26 @@
 </head>
 <body>
     <header>
-        <h1>Calculator</h1>
+        <h1>Server Side Calculator</h1>
     </header>
-    
+    <section id="inputsAndButtons">
+        <input id="num1" placeholder="Enter Number">
+        <button id="addBtn">+</button>
+        <button id="subBtn">-</button>
+        <button id="multBtn">*</button>
+        <button id="divBtn">/</button>
+        <input id="num2" placeholder="Enter Number">
+        <button id="calcBtn">=</button>
+        <button id="clrBtn">C</button>
+    </section>
+
+    <div id="currentResultDisplay">
+        <!-- current result displayed here -->
+    </div>
+    <main id="previousResultsDisplay">
+        <ul class="previousResultsUl">
+            <!-- previous results append here -->
+        </ul>
+    </main>
 </body>
 </html>

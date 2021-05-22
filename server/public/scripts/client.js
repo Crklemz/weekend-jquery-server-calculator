@@ -21,7 +21,7 @@ function handleReady() {
 let equationObject = {}; 
 
 function handleCalculate() {
-    console.log('clicked calcBtn');
+    console.log('in handleCalculate');
     //get input from DOM
     let num1 = $('#num1').val();
     let num2 = $('#num2').val();
@@ -35,7 +35,7 @@ function handleCalculate() {
         method: 'POST', //posting info for server
         url: '/equationObjects', //route to server
         data: equationObject, //data to send
-    })
+    }).then
 
 }//end handleAdd
 /*****************************************************************

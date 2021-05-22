@@ -16,8 +16,9 @@ function handleReady() {
     //functions to call on ready
     
 }
-
-let equationObject = {};
+//to hold the values of the numbers enetered and 
+//the operator button clicked
+let equationObject = {}; 
 
 function handleCalculate() {
     console.log('clicked calcBtn');
@@ -30,32 +31,13 @@ function handleCalculate() {
     equationObject.num2 = num2;
     console.log('The numbers are', equationObject);
     
-
+    $.ajax({
+        method: 'POST', //posting info for server
+        url: '/equationObjects', //route to server
+        data: equationObject, //data to send
+    })
 
 }//end handleAdd
-
-function clickedAdd() {
-    console.log('in clickedAdd');
-    equationObject.operator = '+';
-}
-
-function clickedSubtract() {
-    console.log('in clickedSubtract');
-    equationObject.operator = '-';
-}
-
-function clickedMultiply() {
-    console.log('in clickedMultiply');
-    equationObject.operator = '*'
-}
-
-function clickedDivide() {
-    console.log('in clickedDivide');
-    equationObject.operator = '/'
-}
-
-
-
 /*****************************************************************
 Notes to help:
 $.ajax({
@@ -82,8 +64,28 @@ $.ajax({
 } // End clickedSubmit function. 
 *******************************************************************/
 
+//functions to pass the value of the button clicked to the 
+//equationObject as a way of getting the values of the 
+//buttons clicked (+, -, *, /)
+function clickedAdd() {
+    console.log('in clickedAdd');
+    equationObject.operator = '+';
+}
 
+function clickedSubtract() {
+    console.log('in clickedSubtract');
+    equationObject.operator = '-';
+}
 
+function clickedMultiply() {
+    console.log('in clickedMultiply');
+    equationObject.operator = '*'
+}
+
+function clickedDivide() {
+    console.log('in clickedDivide');
+    equationObject.operator = '/'
+}
 
 
 

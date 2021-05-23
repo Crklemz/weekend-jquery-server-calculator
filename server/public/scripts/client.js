@@ -35,23 +35,13 @@ function handleCalculate() {
         method: 'POST', //posting info for server
         url: '/equationObjects', //route to server
         data: equationObject, //data to send
-    }).then
-
-}//end handleAdd
-/*****************************************************************
-Notes to help:
-$.ajax({
-    method: 'POST', // Posting information. 
-    url: '/guesses', // Called a "route".
-    data: guesses, 
-  }).then(function (response) { // .then handles happy things; 2XX responses.
-    console.log(response);
-  }).catch(function (error) { // .catch handles bad things; 4XX or 5XX errors. 
-    console.log(error)
-    alert('Something went wrong with GET, try again.')
-  }) // End Ajax .then and .catch functions. 
-  // ⬇ Getting those guesses from the server:
-  $.ajax({
+    }).then(function (response) { // 2XX responses.
+        console.log(response);
+      }).catch(function (error) { //4XX or 5XX errors. 
+        console.log(error)
+        alert('Something went wrong with GET, try again.')
+      })//end ajax post
+    $.ajax({
     method: 'GET',
     url: '/results'
   }).then(function (response) {
@@ -60,9 +50,18 @@ $.ajax({
   }).catch(function (error) {
     console.log(error);
     alert('Something went wrong with GET')
-  })
-} // End clickedSubmit function. 
-*******************************************************************/
+  })//end ajax get
+}//end handleAdd
+
+function renderDom(info) {
+    // Appending current result to DOM: 
+    $('#currentResultDisplay').append(`    
+        <h2>${info[0]}</h2> 
+    `);
+
+    //for loop to display ul of previous results
+
+  }
 
 //functions to pass the value of the button clicked to the 
 //equationObject as a way of getting the values of the 
@@ -87,37 +86,3 @@ function clickedDivide() {
     equationObject.operator = '/'
 }
 
-
-
-
-
-
-
-
-
-
-
-// function handleSubtract() {
-//     console.log('clicked subBtn');
-    
-// }
-
-// function handleMultiply() {
-//     console.log('clicked multBtn');
-    
-// }
-
-// function handleDivide() {
-//     console.log('clicked divBtn');
-    
-// }
-
-// function handleCalulate() {
-//     console.log('clicked calcBtn');
-    
-// }
-
-// function handleClear() {
-//     console.log('clicked clrBtn');
-    
-// }

@@ -31,18 +31,26 @@ app.get('/results', (req, res) => {
 
 function calculate() {
     let answer;
+
     if(equationObject.operator = '+') {
-       answer = equationObject.num1 + equationObject.num2;
+       answer = parseInt(equationObject.num1) + parseInt(equationObject.num2);
 
-    } else if (equationObject.operator = '-') {
-        answer = equationObject.num1 - equationObject.num2;
+    } 
+    
+    if (equationObject.operator = '-') {
+        answer = parseInt(equationObject.num1) - parseInt(equationObject.num2);
 
-    } else if (equationObject.operator = '*') {
-        answer = equationObject.num1 * equationObject.num2;
+    } 
+    
+    if (equationObject.operator = '*') {
+        answer = parseInt(equationObject.num1) * parseInt(equationObject.num2);
 
-    } else if (equationObject.operator = '/') {
-        answer = equationObject.num1 / equationObject.num2;
+    } 
+    
+    if (equationObject.operator = '/') {
+        answer = parseInt(equationObject.num1) / parseInt(equationObject.num2);
     }
+
     results.push(answer);
 }//end calculate
 

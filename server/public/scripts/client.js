@@ -11,10 +11,11 @@ function handleReady() {
     $('#multBtn').on('click', clickedMultiply);
     $('#divBtn').on('click', clickedDivide);
     $('#calcBtn').on('click', handleCalculate);
-    // $('#clrBtn').on('click', clickedClear);
+    $('#clrBtn').on('click', clickedClear);
 
     //functions to call on ready
-    
+
+
 }
 //to hold the values of the numbers enetered and 
 //the operator button clicked
@@ -54,14 +55,27 @@ function handleCalculate() {
 }//end handleAdd
 
 function renderDom(info) {
+    //clear previous result from current result display
+    $('#currentResultDisplay').text('');
+    //clear ul of previous results so there is a fresh place for all previous results to display
+    $('.previousResultsUl').text('');
     // Appending current result to DOM: 
     $('#currentResultDisplay').append(`    
-        <h2>${info[0]}</h2> 
+        <h2>${info[info.length-1]}</h2> 
     `);
-
+    for(let i=0; i<info.length; i++) {
+        $('.previousResultsUl').append(`
+            <li>${info[i]}</li>
+        `);
+    }
+    return;
     //for loop to display ul of previous results
-
   }
+
+//   function restartCurrentDisplay() {
+//     console.log('in restart')
+//     $('#currentResultDisplay').text('');
+//   }
 
 //functions to pass the value of the button clicked to the 
 //equationObject as a way of getting the values of the 
@@ -86,3 +100,9 @@ function clickedDivide() {
     equationObject.operator = '/'
 }
 
+function clickedClear() {
+    console.log('clicked clear');
+    
+    $('#num1').val('');
+    $('#num2').val('');
+}
